@@ -55,7 +55,7 @@ dependencies:
   signature: ^5.3.0
   
   # Notifications
-  flutter_local_notifications: ^15.0.0
+  flutter_local_notifications: ^17.0.0
   
   # Utilities
   logger: ^2.0.0
@@ -70,8 +70,7 @@ dependencies:
   # Animation
   lottie: ^2.6.0
   
-  # QR Code (optional)
-  qr_code_scanner: ^1.0.1
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
