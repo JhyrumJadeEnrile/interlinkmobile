@@ -156,7 +156,7 @@ class _SupervisorDashboardPageState extends State<SupervisorDashboardPage> {
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [AppTheme.primaryColor, AppTheme.primaryColor.withOpacity(0.7)],
+            colors: [AppTheme.primaryColor, AppTheme.primaryColor.withValues(alpha: 0.7)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -247,7 +247,7 @@ class _SupervisorDashboardPageState extends State<SupervisorDashboardPage> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: color.withOpacity(0.2),
+          backgroundColor: color.withValues(alpha: 0.2),
           child: Icon(icon, color: color),
         ),
         title: Text(
@@ -263,7 +263,7 @@ class _SupervisorDashboardPageState extends State<SupervisorDashboardPage> {
         ),
         trailing: Chip(
           label: Text(count),
-          backgroundColor: color.withOpacity(0.2),
+          backgroundColor: color.withValues(alpha: 0.2),
           labelStyle: TextStyle(color: color, fontSize: 12.sp),
         ),
         onTap: onTap,
@@ -278,7 +278,7 @@ class _SupervisorDashboardPageState extends State<SupervisorDashboardPage> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
-          color: color.withOpacity(0.05),
+          color: color.withValues(alpha: 0.05),
         ),
         padding: EdgeInsets.all(12.w),
         child: Column(

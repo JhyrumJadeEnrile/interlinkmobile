@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class ApprovalPage extends StatefulWidget {
   final String? supervisorName;
 
   const ApprovalPage({
-    Key? key,
+    super.key,
     this.supervisorName,
-  }) : super(key: key);
+  });
 
   @override
   State<ApprovalPage> createState() => _ApprovalPageState();

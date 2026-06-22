@@ -20,7 +20,7 @@ void main() async {
 }
 
 class InternLinkApp extends StatelessWidget {
-  const InternLinkApp({Key? key}) : super(key: key);
+  const InternLinkApp({super.key});
 
   @override
   Widget build(BuildContext context) {

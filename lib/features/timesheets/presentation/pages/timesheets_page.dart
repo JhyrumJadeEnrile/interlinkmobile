@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class TimesheetsPage extends StatefulWidget {
@@ -7,10 +6,10 @@ class TimesheetsPage extends StatefulWidget {
   final String? role;
 
   const TimesheetsPage({
-    Key? key,
+    super.key,
     this.userName,
     this.role,
-  }) : super(key: key);
+  });
 
   @override
   State<TimesheetsPage> createState() => _TimesheetsPageState();

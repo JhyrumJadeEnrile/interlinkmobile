@@ -70,10 +70,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        context.go('/login');
-        return false;
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          context.go('/login');
+        }
       },
       child: Scaffold(
         appBar: AppBar(
@@ -127,7 +129,7 @@ class _HomePageState extends State<HomePage> {
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppTheme.primaryColor, AppTheme.primaryColor.withOpacity(0.7)],
+          colors: [AppTheme.primaryColor, AppTheme.primaryColor.withValues(alpha: 0.7)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -166,7 +168,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Text(
@@ -309,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                 value: double.parse(percentage.replaceAll('%', '')) / 100,
                 minHeight: 8.h,
                 backgroundColor: Colors.grey[300],
-                valueColor: AlwaysStoppedAnimation(AppTheme.primaryColor),
+                valueColor: const AlwaysStoppedAnimation(AppTheme.primaryColor),
               ),
             ),
             SizedBox(height: 12.h),

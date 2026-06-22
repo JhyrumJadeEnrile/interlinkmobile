@@ -11,10 +11,10 @@ class TimeTrackingPage extends StatefulWidget {
   final String? role;
 
   const TimeTrackingPage({
-    Key? key,
+    super.key,
     this.userName,
     this.role,
-  }) : super(key: key);
+  });
 
   @override
   State<TimeTrackingPage> createState() => _TimeTrackingPageState();
@@ -136,7 +136,7 @@ class _TimeTrackingPageState extends State<TimeTrackingPage> {
       builder: (context) => AlertDialog(
         title: Row(
           children: [
-            Icon(Icons.check_circle, color: AppTheme.successColor),
+            const Icon(Icons.check_circle, color: AppTheme.successColor),
             SizedBox(width: 8.w),
             Text(title),
           ],
@@ -158,7 +158,7 @@ class _TimeTrackingPageState extends State<TimeTrackingPage> {
       builder: (context) => AlertDialog(
         title: Row(
           children: [
-            Icon(Icons.error, color: AppTheme.errorColor),
+            const Icon(Icons.error, color: AppTheme.errorColor),
             SizedBox(width: 8.w),
             const Text('Error'),
           ],

@@ -158,7 +158,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [AppTheme.primaryColor, AppTheme.primaryColor.withOpacity(0.7)],
+            colors: [AppTheme.primaryColor, AppTheme.primaryColor.withValues(alpha: 0.7)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -243,7 +243,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
-          color: color.withOpacity(0.05),
+          color: color.withValues(alpha: 0.05),
         ),
         padding: EdgeInsets.all(12.w),
         child: Column(
@@ -293,7 +293,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: color.withOpacity(0.2),
+          backgroundColor: color.withValues(alpha: 0.2),
           child: Icon(icon, color: color),
         ),
         title: Text(

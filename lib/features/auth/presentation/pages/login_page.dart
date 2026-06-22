@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../config/theme/app_theme.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

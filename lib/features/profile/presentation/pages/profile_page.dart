@@ -11,12 +11,12 @@ class ProfilePage extends StatefulWidget {
   final String? company;
 
   const ProfilePage({
-    Key? key,
+    super.key,
     this.userName,
     this.role,
     this.email,
     this.company,
-  }) : super(key: key);
+  });
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -132,21 +132,21 @@ class _ProfilePageState extends State<ProfilePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // Personal Information
-                  _SectionTitle(title: 'Personal Information'),
+                  const _SectionTitle(title: 'Personal Information'),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.email,
                     label: 'Email',
                     value: 'jrebutar@ojt.com',
                   ),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.phone,
                     label: 'Phone',
                     value: '+63 917 123 4567',
                   ),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.card_membership,
                     label: 'Student ID',
                     value: 'STU-2024-0456',
@@ -155,27 +155,27 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 24.h),
 
                   // Internship Information
-                  _SectionTitle(title: 'Internship Information'),
+                  const _SectionTitle(title: 'Internship Information'),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.business,
                     label: 'Company',
                     value: 'MedGrocer Inc.',
                   ),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.location_on,
                     label: 'Location',
                     value: 'Centauria, WFH',
                   ),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.person,
                     label: 'Supervisor',
                     value: 'Mr. John Supervisor',
                   ),
                   SizedBox(height: 12.h),
-                  _InfoCard(
+                  const _InfoCard(
                     icon: Icons.school,
                     label: 'OJT Coordinator',
                     value: 'Ms. Maria Coordinator',
@@ -184,11 +184,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 24.h),
 
                   // Security Settings
-                  _SectionTitle(title: 'Security & Privacy'),
+                  const _SectionTitle(title: 'Security & Privacy'),
                   SizedBox(height: 12.h),
                   Card(
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.fingerprint,
                         color: AppTheme.primaryColor,
                       ),
@@ -200,7 +200,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           setState(() => _biometricEnabled = value);
                           StorageService.instance.enableBiometric(value);
                         },
-                        activeColor: AppTheme.primaryColor,
+                        activeThumbColor: AppTheme.primaryColor,
                       ),
                     ),
                   ),
@@ -208,11 +208,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 24.h),
 
                   // Settings
-                  _SectionTitle(title: 'Settings'),
+                  const _SectionTitle(title: 'Settings'),
                   SizedBox(height: 12.h),
                   Card(
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.language,
                         color: AppTheme.primaryColor,
                       ),
@@ -225,7 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 12.h),
                   Card(
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.notifications,
                         color: AppTheme.primaryColor,
                       ),
@@ -239,11 +239,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 24.h),
 
                   // About
-                  _SectionTitle(title: 'About'),
+                  const _SectionTitle(title: 'About'),
                   SizedBox(height: 12.h),
                   Card(
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.info,
                         color: AppTheme.primaryColor,
                       ),
@@ -255,7 +255,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 12.h),
                   Card(
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.description,
                         color: AppTheme.primaryColor,
                       ),
@@ -267,7 +267,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 12.h),
                   Card(
                     child: ListTile(
-                      leading: Icon(
+                      leading: const Icon(
                         Icons.description,
                         color: AppTheme.primaryColor,
                       ),
@@ -329,7 +329,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context.go('/login');
               }
             },
-            child: Text(
+            child: const Text(
               'Logout',
               style: TextStyle(color: AppTheme.errorColor),
             ),
@@ -380,7 +380,7 @@ class _InfoCard extends StatelessWidget {
               width: 40.w,
               height: 40.w,
               decoration: BoxDecoration(
-                color: AppTheme.primaryColor.withOpacity(0.1),
+                color: AppTheme.primaryColor.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(

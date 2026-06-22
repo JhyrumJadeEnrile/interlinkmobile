@@ -158,7 +158,7 @@ class AppTheme {
       primaryColor: primaryColor,
       scaffoldBackgroundColor: darkBg,
       
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: darkCardBg,
         foregroundColor: lightText,
         elevation: 0,

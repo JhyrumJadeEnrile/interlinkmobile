@@ -16,7 +16,7 @@ import '../../features/admin/presentation/pages/admin_dashboard_page.dart';
 class ErrorPage extends StatelessWidget {
   final String? error;
 
-  const ErrorPage({Key? key, this.error}) : super(key: key);
+  const ErrorPage({super.key, this.error});
 
   @override
   Widget build(BuildContext context) {
@@ -211,7 +211,7 @@ class _PlaceholderPage extends StatelessWidget {
             const Icon(Icons.construction, size: 64, color: Colors.grey),
             const SizedBox(height: 16),
             Text(
-              '$title',
+              title,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),

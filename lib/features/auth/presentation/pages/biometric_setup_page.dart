@@ -6,7 +6,7 @@ import 'package:internlink/core/services/local_auth_service.dart';
 import 'package:internlink/core/services/storage_service.dart';
 
 class BiometricSetupPage extends StatefulWidget {
-  const BiometricSetupPage({Key? key}) : super(key: key);
+  const BiometricSetupPage({super.key});
 
   @override
   State<BiometricSetupPage> createState() => _BiometricSetupPageState();
@@ -14,7 +14,6 @@ class BiometricSetupPage extends StatefulWidget {
 
 class _BiometricSetupPageState extends State<BiometricSetupPage> {
   bool _isSetupComplete = false;
-  List<String> _setupSteps = [];
 
   @override
   void initState() {
@@ -25,10 +24,6 @@ class _BiometricSetupPageState extends State<BiometricSetupPage> {
   void _initializeSetup() async {
     final biometrics =
         await LocalAuthService.instance.getAvailableBiometrics();
-    
-    setState(() {
-      _setupSteps = biometrics.map((b) => b.toString()).toList();
-    });
   }
 
   void _enableBiometric() async {
@@ -65,7 +60,7 @@ class _BiometricSetupPageState extends State<BiometricSetupPage> {
                     width: 100.w,
                     height: 100.w,
                     decoration: BoxDecoration(
-                      color: AppTheme.primaryColor.withOpacity(0.1),
+                      color: AppTheme.primaryColor.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -99,19 +94,19 @@ class _BiometricSetupPageState extends State<BiometricSetupPage> {
               // Benefits
               Column(
                 children: [
-                  _BenefitItem(
+                  const _BenefitItem(
                     icon: Icons.security,
                     title: 'Enhanced Security',
                     description: 'Protect your account with fingerprint or face ID',
                   ),
                   SizedBox(height: 16.h),
-                  _BenefitItem(
+                  const _BenefitItem(
                     icon: Icons.speed,
                     title: 'Quick Access',
                     description: 'Login faster without typing credentials',
                   ),
                   SizedBox(height: 16.h),
-                  _BenefitItem(
+                  const _BenefitItem(
                     icon: Icons.check_circle,
                     title: 'Convenient',
                     description: 'One-tap authentication on every login',
@@ -181,7 +176,7 @@ class _BenefitItem extends StatelessWidget {
           width: 50.w,
           height: 50.w,
           decoration: BoxDecoration(
-            color: AppTheme.primaryColor.withOpacity(0.1),
+            color: AppTheme.primaryColor.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),
           child: Icon(

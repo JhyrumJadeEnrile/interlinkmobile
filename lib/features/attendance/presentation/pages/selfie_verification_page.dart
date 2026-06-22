@@ -11,10 +11,10 @@ class SelfieVerificationPage extends StatefulWidget {
   final String? role;
 
   const SelfieVerificationPage({
-    Key? key,
+    super.key,
     this.userName,
     this.role,
-  }) : super(key: key);
+  });
 
   @override
   State<SelfieVerificationPage> createState() => _SelfieVerificationPageState();
@@ -81,20 +81,13 @@ class _SelfieVerificationPageState extends State<SelfieVerificationPage> {
     }
   }
 
-  void _retakeSelfie() {
-    setState(() {
-      _capturedImage = null;
-      _isVerified = false;
-    });
-  }
-
   void _showSuccessDialog(String title, String message) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Row(
           children: [
-            Icon(Icons.check_circle, color: AppTheme.successColor),
+            const Icon(Icons.check_circle, color: AppTheme.successColor),
             SizedBox(width: 8.w),
             Text(title),
           ],
@@ -116,7 +109,7 @@ class _SelfieVerificationPageState extends State<SelfieVerificationPage> {
       builder: (context) => AlertDialog(
         title: Row(
           children: [
-            Icon(Icons.error, color: AppTheme.errorColor),
+            const Icon(Icons.error, color: AppTheme.errorColor),
             SizedBox(width: 8.w),
             const Text('Error'),
           ],
@@ -134,14 +127,12 @@ class _SelfieVerificationPageState extends State<SelfieVerificationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        // Prevent back navigation if not verified
-        if (!_isVerified) {
+    return PopScope(
+      canPop: _isVerified,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop && !_isVerified) {
           _showErrorDialog('Please complete the verification process');
-          return false;
         }
-        return true;
       },
       child: Scaffold(
         appBar: AppBar(
@@ -167,10 +158,10 @@ class _SelfieVerificationPageState extends State<SelfieVerificationPage> {
                 Container(
                   padding: EdgeInsets.all(16.w),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryColor.withOpacity(0.1),
+                    color: AppTheme.primaryColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12.r),
                     border: Border.all(
-                      color: AppTheme.primaryColor.withOpacity(0.3),
+                      color: AppTheme.primaryColor.withValues(alpha: 0.3),
                     ),
                   ),
                   child: Column(
@@ -241,7 +232,7 @@ class _SelfieVerificationPageState extends State<SelfieVerificationPage> {
                             vertical: 8.h,
                           ),
                           decoration: BoxDecoration(
-                            color: AppTheme.successColor.withOpacity(0.1),
+                            color: AppTheme.successColor.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8.r),
                             border: Border.all(
                               color: AppTheme.successColor,
@@ -361,7 +352,7 @@ class _SelfieVerificationPageState extends State<SelfieVerificationPage> {
                             ? null
                             : _verifySelfie,
                         icon: _isVerifying
-                            ? SizedBox(
+                            ? const SizedBox(
                                 width: 20,
                                 height: 20,
                                 child: CircularProgressIndicator(
